@@ -1,7 +1,35 @@
 var horn = document.getElementById('horn-sound');
 var img = document.getElementById('sound-image');
-var vol = document.getElementById('volume-number');
+
+var volImg = document.getElementById('volume-image');
+var volNum = document.getElementById('volume-number');
 var slider = document.getElementById('volume-slider');
+
+volNum.addEventListener('input', updateVol);
+
+// Volume and volume image setter
+function updateVol(e) {
+    horn.volume = e.target.value / 100;
+    console.log(horn.volume);
+    volNum.setAttribute('change', horn.volume);
+
+    if (horn.volume > .66) {
+        volImg.setAttribute('src','./assets/media/icons/volume-level-3.svg');
+        console.log('high');
+    }
+    if (horn.volume > .33 && horn.volume < .67) {
+        volImg.setAttribute('src','./assets/media/icons/volume-level-2.svg');
+        console.log('med');
+    }
+    if (horn.volume > 0 && horn.volume < .34) {
+        volImg.setAttribute('src','./assets/media/icons/volume-level-1.svg');
+        console.log('low');
+    }
+    if (horn.volume == 0) {
+        volImg.setAttribute('src','./assets/media/icons/volume-level-0.svg');
+        console.log('mute');
+    }
+}
 
 document.getElementById('honk-btn').onclick = function() {
     playAudio();
