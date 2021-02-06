@@ -13,6 +13,7 @@ function updateVol(e) {
     slider.value = e.target.value;
     volNum.value = e.target.value;
 
+    // Volume levels
     if (horn.volume > .66) {
         volImg.setAttribute('src','./assets/media/icons/volume-level-3.svg');
     }
