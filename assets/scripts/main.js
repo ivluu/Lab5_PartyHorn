@@ -10,8 +10,8 @@ slider.addEventListener('input', updateSlide);
 // Volume and volume image setter for text field
 function updateVol(e) {
     horn.volume = e.target.value / 100;
-    slider.setAttribute('value', e.target.value);
-    volNum.setAttribute('value', horn.volume);
+    slider.value = e.target.value;
+    volNum.value = e.target.value;
 
     if (horn.volume > .66) {
         volImg.setAttribute('src','./assets/media/icons/volume-level-3.svg');
@@ -29,7 +29,8 @@ function updateVol(e) {
 // Volume and volume image setter for slider
 function updateSlide(e) {
     horn.volume = e.target.value / 100;
-    volNum.setAttribute('value', e.target.value);
+    slider.value = e.target.value;
+    volNum.value = e.target.value;
 
     if (horn.volume > .66) {
         volImg.setAttribute('src','./assets/media/icons/volume-level-3.svg');
